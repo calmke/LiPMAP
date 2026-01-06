@@ -46,7 +46,7 @@ pip install "git+https://github.com/facebookresearch/vggt.git"
 We provide all scripts for pre-processing on ScanNetV2, ScanNet++, Hypersim, and your own multi-view images.
 Please download and place all datasets in the `./data` folder.
 
-### ScanNetV2
+### 1. ScanNetV2
 
 1.Please follow instructions reported in [SimpleRecon](https://github.com/nianticlabs/simplerecon) to download and extract ScanNetV2 scenes. The extacted data format should be like:
 ```
@@ -73,7 +73,7 @@ bash data_process/scannetv2/2.export_geometry.sh
 bash data_process/scannetv2/3.line_detection.sh
 ```
 
-### ScanNet++
+### 2. ScanNet++
 
 1.Please follow instructions reported in [ScanNet++](https://kaldir.vc.in.tum.de/scannetpp/) to download and extract ScanNet++ scenes. The extacted data format should be like:
 ```
@@ -92,7 +92,7 @@ bash data_process/scannetpp/2.export_geometry.sh
 bash data_process/scannetpp/3.line_detection.sh
 ```
 
-### Hypersim
+### 3. Hypersim
 
 1.Please download Hypersim use the following scrpit:
 ```
@@ -120,7 +120,7 @@ bash data_process/hypersim/2.line_detection.sh
 ```
 
 
-After the above preprocessing, data from different sources are stored in **the same unified format**. The final data format should be like:
+- After the above preprocessing, data from different sources are stored in **the same unified format**. The final data format should be like:
 ```
 data/general_data/{dataset_name}/
       {scene_id}/
@@ -144,14 +144,17 @@ data/general_data/{dataset_name}/
                   ....
             intrinsics.txt
 ```
-`dataset_name: [ScanNetV2, ScanNetPP, Hypersim]`
-`depth_type: [gt/sensor, metric3d_large, moge2]`
-`normal_type: [metric3d_large, moge2, omnidata]`
-`line_detector: [lsd, hawpv3, deeplsd, scalelsd]`
+- `dataset_name: [ScanNetV2, ScanNetPP, Hypersim]`
 
-### General data with only images
+- `depth_type: [gt/sensor, metric3d_large, moge2]`
 
-We use VGGT to obtain camera intrinsics, poses, normal/depth maps. Setting the `image_path` in the script and run the script:
+- `normal_type: [metric3d_large, moge2, omnidata]`
+
+- `line_detector: [lsd, hawpv3, deeplsd, scalelsd]`
+
+### 4. General data with only images
+
+We use VGGT to obtain camera intrinsics, poses, normal/depth maps. Set the `image_path` in the script and run the script:
 ```
 bash data_process/vggt_data/export_vggt_data.sh
 ```
@@ -184,7 +187,7 @@ data/general_data/general_data/
 ```
 
 ## 🚗🔥Reconstruction
-Seeting the ***scene_id*** in the scripts and run scripts as follow:
+Set the ***scene_id*** in the scripts and run scripts as follow:
 
 ### ScanNetV2
 ```
@@ -225,7 +228,7 @@ bash scripts/vis_plane_lines.sh
 ```
 It should be **noted** that set `dist_th=5` yields better visualizations when VGGT produces poor outputs.
 
-## 🔍 Quick Gradio Demo
+## 💻 Quick Gradio Demo
 Run the following command to open the Gradio interface in the local browser:
 ```
 python run_gradio_demo.py
