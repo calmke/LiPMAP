@@ -209,7 +209,7 @@ bash scripts/run_general.sh
 ```
 
 
-## 🔍 Visualization
+## 🔍 Visualization 
 We provide standard and convenient API used to visualize the variables involved in the process of our 3d line mapping in the file `./utils/mesh_util.py`, and the common used one is:
 ```
 mesh_util.vis_plane_rays_juncs_lines([OPTICS])
