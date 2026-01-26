@@ -10,7 +10,7 @@ from pyhocon import ConfigTree
 from utils.run_metric3d import extract_mono_geo_demo
 from utils.run_vggt import run_vggt
 from utils.misc_util import save_video, is_video_file, save_frames_from_video
-from utils.run_detector import run_line_detector
+from utils_gradio.run_detector import run_line_detector
 
 import torch
 from vggt.models.vggt import VGGT
