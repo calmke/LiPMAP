@@ -156,7 +156,7 @@ data/general_data/{dataset_name}/
 
 We use VGGT to obtain camera intrinsics, poses, normal/depth maps. Set the `image_path` in the script and run the script:
 ```
-bash data_process/vggt_data/export_vggt_data.sh
+bash data_process/vggt_data/export_vggt_data.sh 
 ```
 The final data format should be like:
 ```
