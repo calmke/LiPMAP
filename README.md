@@ -1,6 +1,6 @@
 # LiP-Map: Interacted Planes Reveal 3D Line Mapping
 
-<!-- <a href="https://code.alipay.com/kezeran.kzr/ScaleLSD"><img src="https://img.shields.io/static/v1?label=Project%20Page&message=Github&color=blue&logo=github-pages"></a>&ensp;<a href="https://code.alipay.com/kezeran.kzr/ScaleLSD"><img src="https://img.shields.io/badge/ArXiv-xxxx.xxxxx-brightgreen"></a>&ensp;<a href="https://code.alipay.com/kezeran.kzr/ScaleLSD"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Gradio%20Demo-Huggingface-orange"></a> -->
+<a href="https://arxiv.org/abs/2602.01296"><img src="https://img.shields.io/badge/ArXiv-2602.01296-brightgreen"></a>
 
 <div align="center">
 
