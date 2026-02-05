@@ -242,7 +242,7 @@ Also, you can upload images and set optimization parameters for final 3D reconst
 Here, we take 49 images of the scene `scan16` from `DTU dataset` as an example.
 <img src="assets/figs/deeplsd-dtu-scan16.png" alt="Gradio Demo Interface" width="800">
 
-## 🙏 Acknowledgement
+## 🙏 Acknowledgements
 LiPMAP is built on the top of several outstanding open-source projects. We are extremely grateful for the contributions of these projects and their communities, whose hard work has greatly propelled the development of the field and enabled our work to be realized.
 - [PlanarSplatting](https://github.com/ant-research/PlanarSplatting)
 - [Omnidata](https://github.com/EPFL-VILAB/omnidata)
