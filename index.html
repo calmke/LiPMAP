@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LiP-Map: Interacted Planes Reveal 3D Line Mapping">
+  <meta name="keywords" content="3D Line Mapping, 3D Planar Primitives, Interacted Planes, Structured Visual Geometry, Camera Relocalization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LiP-Map: Interacted Planes Reveal 3D Line Mapping</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- for GLB -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <!-- for PLY -->
+  <script src="./static/js/three.min.js"></script>
+  <script src="./static/js/PLYLoader.js"></script>
+  <script src="./static/js/OrbitControls.js"></script>
+  <script src="./static/js/PLYViewer.js"></script>
+</head>
+
+<body>
+<!-- Heads -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!-- Title -->
+          <h1 class="title is-3 publication-title">LiP-Map: Interacted Planes Reveal 3D Line Mapping</h1>
+          <!-- Authors -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://calmke.github.io/">Zeran Ke</a><sup>1,2*</sup>,</span>
+            <span class="author-block">
+              <a href="https://icetttb.github.io/">Bin Tan</a><sup>2*</sup>,</span>
+            <span class="author-block">
+              <a href="http://www.captain-whu.com/zh/person/xiaguisong.html">Gui-Song Xia</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://shenyujun.github.io/">Yujun Shen</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://xuenan.net/">Nan Xue</a><sup>2†</sup>,
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Wuhan University,</span>
+            <span class="author-block"><sup>2</sup>Ant Group</span>
+          </div>
+          <!-- Icons -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2602.01296"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2602.01296"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/calmke/LiPMAP"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span> -->
+              <!-- Hugging Face Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/papers/2602.01296"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span>🤗HuggingFace</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/assets/teaser.png" alt="Teaser image."/>
+    </div>
+  </div>
+</section>
+
+
+<!-- Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style="color: rgb(0, 0, 0);">
+            3D line mapping from multi-view RGB images provides a compact and structured visual representation of scenes. 
+            <b>We study the problem from a physical and topological perspective: a 3D line most naturally emerges as the edge of a finite 3D planar patch.</b>
+            We present LiP-Map, a line-plane joint optimization framework that explicitly models learnable line and planar primitives. This coupling 
+            enables accurate and detailed 3D line mapping while maintaining strong efficiency (typically completing a reconstruction in 3 to 5 minutes
+            per scene). LiP-Map pioneers the integration of planar topology into 3D line mapping, not by imposing pairwise coplanarity constraints but
+            by explicitly constructing interactions between plane and line primitives, thus offering a principled route toward structured reconstruction
+            in man-made environments. On more than 100 scenes from ScanNetV2, ScanNet++, Hypersim, 7Scenes, and Tanks&Temple, LiP-Map
+            improves both accuracy and completeness over state-of-the-art methods. Beyond line mapping quality, LiP-Map significantly advances
+            line-assisted visual localization, establishing strong performance on 7Scenes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <style>
+        .image-pair {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .image-pair-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .image-item {
+            flex: 0 1 auto;
+            text-align: center;
+            max-width: 500px;
+        }
+        
+        .image-item img {
+            height: 300px;
+            width: auto;
+            /* width: 100%; */
+            /* max-width: 400px; */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .image-item h3 {
+            margin-top: 15px;
+            color: #282727;
+        }
+        
+        .image-item p {
+            font-size: 15px;
+            color: #7d4f4f;
+            margin-top: 10px;
+        }
+    </style>
+    <div class="columns is-centered has-text-centered">
+      <div class="image-pair">
+        <div class="image-item">
+            <img src="./static/assets/scene_mesh_lines.png" alt="Mesh-Line" style="height: 170px;">
+            <h3>Planar Mesh VS. Line Edges</h3>
+            <p>The 3D lines align closely with physical surface boundaries, highlighting the strong correlation between the two structures.</p>
+        </div>
+        <div class="image-item">
+            <img src="./static/assets/plane_def.png" alt="Planar primitive" style="height: 170px;">
+            <h3>Planar Primitive</h3>
+            <p>Representation of the 3D rectangular plane with learnable shape parameters.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p style="color: black;">
+            Our approach leverages the geometric synergy between line segments and the edges of 3D planar primitives. By applying any existing 2D line segment detector to multi-view input images, a set of 3D planes is optimized with two key learning objectives:
+          </p>
+          <ul style="color: black;">
+            <li>
+            The 3D planes should align as closely as possible with the 2.5D depth/normal maps from the input images.
+            </li>
+            <li>
+            The edges (or boundaries) of the 3D planes should be consistent with the observed 2D line segments.
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="image-pair">
+        <div class="image-pair-left">
+          <div class="image-item";">
+              <img src="./static/assets/line_region.png" alt="Line Region" style="height: 150px;max-width: 1000px;">
+              <h3>(a) 1-pixel regions</h3>
+              <p>Detected 2D lines and corresponding 1-pixel regions.</p>
+          </div>
+          <div class="image-item";">
+              <img src="./static/assets/2d-3d-assginment.png" alt="Assignment Process" style="height: 250px;max-width: 500px;">
+              <h3>(b) Assignment Process</h3>
+              <p>Illustration of 2D line to 3D plane edge assignment. The best candidate of the ''line-edge'' is filtered from the perspective of angle and distance.</p>
+          </div>
+        </div>
+        <div class="image-item">
+            <img src="./static/assets/association.png" alt="Optimization Process" style="height: 450px;max-width: 1000px;">
+            <h3>(c) Optimization Process</h3>
+            <p>Illustration of the assignment and optimization process from one view. <b>Red</b>: rays. <b>Blue</b>: planar primitives. <b>Black</b>: planar edges. <b>Top left</b>: the association of rays and planar primitives. <b>Top right</b>: the selected planar primitives. <b>Bottom left</b>: the selected planar edges. <b>Bottom right</b>: the optimized planar edges.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .visualization-section { padding: 40px 20px; background:#f9f9f9; margin:40px 0; }
+  .visualization-container { max-width: 1200px; margin: 0 auto; }
+  .visualization-title { text-align:center; font-size:28px; font-weight:700; color:#333; margin-bottom:40px; }
+
+  .dataset-buttons { display:flex; gap:15px; justify-content:center; margin-bottom:40px; flex-wrap:wrap; }
+  .dataset-btn { padding:12px 30px; font-size:16px; border:2px solid #ddd; background:#fff; color:#333; border-radius:8px; cursor:pointer; transition:.3s; }
+  .dataset-btn:hover { border-color:#007bff; color:#007bff; }
+  .dataset-btn.active { background:#007bff; color:#fff; border-color:#007bff; }
+
+  .examples-title { font-size:18px; font-weight:700; color:#333; margin:0 0 20px; text-align:center; }
+  .examples-list { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; }
+  .example-btn { padding:10px 20px; font-size:14px; border:2px solid #ddd; background:#fff; color:#333; border-radius:6px; cursor:pointer; transition:.3s; }
+  .example-btn:hover { border-color:#28a745; color:#28a745; }
+  .example-btn.active { background:#28a745; color:#fff; border-color:#28a745; }
+
+  .videos-container { display:flex; gap:15px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; }
+  .video-item { text-align:center; }
+  .video-item video { width:450px; height:300px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,.2); background:#000; }
+  .video-item p { margin-top:10px; color:#666; font-size:14px; }
+
+  .glb-container { display:flex; gap:15px; justify-content:center; flex-wrap:wrap; }
+  .glb-item { text-align:center; }
+  .glb-viewer { width:450px; height:450px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,.2); background:#f0f0f0; overflow:hidden; }
+  .glb-item p { margin-top:10px; color:#666; font-size:14px; }
+
+  .glb-download { margin-top:10px; }
+  .glb-download a { padding:8px 16px; background:#007bff; color:#fff; text-decoration:none; border-radius:6px; font-size:12px; }
+  .glb-download a:hover { background:#0056b3; }
+
+  /* loading overlay */
+  .viewer-wrap { position: relative; width:100%; height:100%; }
+  .viewer-loading {
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    background: rgba(0,0,0,0.35);
+    color:#fff; font-size:14px;
+    z-index:10;
+    user-select:none;
+  }
+  .viewer-loading.hidden { display:none; }
+</style>
+
+<section class="visualization-section">
+  <div class="visualization-container">
+    <h2 class="visualization-title">Visualization</h2>
+
+    <div id="datasetButtons" class="dataset-buttons"></div>
+
+    <div class="examples-section">
+      <div id="exampleButtons" class="examples-list"></div>
+    </div>
+
+    <div id="exampleContent"></div>
+  </div>
+</section>
+
+<script>
+  // Maintain ONLY this data when you have many examples
+  const DATA = {
+    "ScanNetV2": [
+      {
+        id: "scene0084_00",
+        // videos: ["./static/videos/A_a1_video1.mp4", "./static/videos/A_a1_video2.mp4"],
+        models: ["./static/assets/scannetv2/scene0084_00_line.ply", "./static/assets/scannetv2/scene0084_00_plane.glb"],
+      },
+      {
+        id: "scene0086_00",
+        models: ["./static/assets/scannetv2/scene0086_00_line.ply", "./static/assets/scannetv2/scene0086_00_plane.glb"],
+      },
+      {
+        id: "scene0100_00",
+        models: ["./static/assets/scannetv2/scene0100_00_line.ply", "./static/assets/scannetv2/scene0100_00_plane.glb"],
+      },
+      {
+        id: "scene0164_00",
+        models: ["./static/assets/scannetv2/scene0164_00_line.ply", "./static/assets/scannetv2/scene0164_00_plane.glb"],
+      },
+      {
+        id: "scene0217_00",
+        models: ["./static/assets/scannetv2/scene0217_00_line.ply", "./static/assets/scannetv2/scene0217_00_plane.glb"],
+      },
+      {
+        id: "scene0406_00",
+        models: ["./static/assets/scannetv2/scene0406_00_line.ply", "./static/assets/scannetv2/scene0406_00_plane.glb"],
+      },
+      {
+        id: "scene0693_00",
+        models: ["./static/assets/scannetv2/scene0693_00_line.ply", "./static/assets/scannetv2/scene0693_00_plane.glb"],
+      },
+    ],
+    "ScanNet++": [
+      {
+        id: "8a20d62ac0",
+        models: ["./static/assets/scannetpp/8a20d62ac0_line.ply", "./static/assets/scannetpp/8a20d62ac0_plane.glb"],
+      },
+      {
+        id: "709ab5bffe",
+        models: ["./static/assets/scannetpp/709ab5bffe_line.ply", "./static/assets/scannetpp/709ab5bffe_plane.glb"],
+      },
+      {
+        id: "e01b287af5",
+        models: ["./static/assets/scannetpp/e01b287af5_line.ply", "./static/assets/scannetpp/e01b287af5_plane.glb"],
+      },
+      {
+        id: "3f15a9266d",
+        models: ["./static/assets/scannetpp/3f15a9266d_line.ply", "./static/assets/scannetpp/3f15a9266d_plane.glb"],
+      },
+      {
+        id: "45b0dac5e3",
+        models: ["./static/assets/scannetpp/45b0dac5e3_line.ply", "./static/assets/scannetpp/45b0dac5e3_plane.glb"],
+      },
+      {
+        id: "f3685d06a9",
+        models: ["./static/assets/scannetpp/f3685d06a9_line.ply", "./static/assets/scannetpp/f3685d06a9_plane.glb"],
+      },
+    ],
+    "Hypersim": [
+      {
+        id: "ai_001_001",
+        models: ["./static/assets/hypersim/ai_001_001_line.ply", "./static/assets/hypersim/ai_001_001_line.glb"],
+      },
+      {
+        id: "ai_001_002",
+        models: ["./static/assets/hypersim/ai_001_002_line.ply", "./static/assets/hypersim/ai_001_002_line.glb"],
+      },
+      {
+        id: "ai_001_003",
+        models: ["./static/assets/hypersim/ai_001_003_line.ply", "./static/assets/hypersim/ai_001_003_line.glb"],
+      },
+      {
+        id: "ai_001_004",
+        models: ["./static/assets/hypersim/ai_001_004_line.ply", "./static/assets/hypersim/ai_001_004_line.glb"],
+      },
+      {
+        id: "ai_001_005",
+        models: ["./static/assets/hypersim/ai_001_005_line.ply", "./static/assets/hypersim/ai_001_005_line.glb"],
+      },
+      {
+        id: "ai_001_006",
+        models: ["./static/assets/hypersim/ai_001_006_line.ply", "./static/assets/hypersim/ai_001_006_line.glb"],
+      },
+      {
+        id: "ai_001_007",
+        models: ["./static/assets/hypersim/ai_001_007_line.ply", "./static/assets/hypersim/ai_001_007_line.glb"],
+      },
+      {
+        id: "ai_001_008",
+        models: ["./static/assets/hypersim/ai_001_008_line.ply", "./static/assets/hypersim/ai_001_008_line.glb"],
+      },
+      {
+        id: "ai_001_009",
+        models: ["./static/assets/hypersim/ai_001_009_line.ply", "./static/assets/hypersim/ai_001_009_line.glb"],
+      },
+      {
+        id: "ai_001_010",
+        models: ["./static/assets/hypersim/ai_001_010_line.ply", "./static/assets/hypersim/ai_001_010_line.glb"],
+      },
+    ],
+  };
+
+  let currentDataset = "ScanNetV2";
+  let currentExampleId = DATA[currentDataset]?.[0]?.id;
+
+  // IMPORTANT: define this, otherwise ReferenceError will stop execution
+  let currentPLYViewer = null;
+
+  const $datasetButtons = document.getElementById("datasetButtons");
+  const $exampleButtons = document.getElementById("exampleButtons");
+  const $exampleContent = document.getElementById("exampleContent");
+
+  function renderDatasetButtons() {
+    $datasetButtons.innerHTML = "";
+    Object.keys(DATA).forEach(ds => {
+      const btn = document.createElement("button");
+      btn.className = "dataset-btn" + (ds === currentDataset ? " active" : "");
+      btn.textContent = ds;
+      btn.onclick = () => {
+        currentDataset = ds;
+        currentExampleId = DATA[currentDataset]?.[0]?.id; // default to first example
+        renderAll();
+      };
+      $datasetButtons.appendChild(btn);
+    });
+  }
+
+  function renderExampleButtons() {
+    $exampleButtons.innerHTML = "";
+    const examples = DATA[currentDataset] || [];
+    if (examples.length === 0) {
+      $exampleButtons.innerHTML = `<div style="color:#666;">No examples.</div>`;
+      return;
+    }
+    examples.forEach(ex => {
+      const btn = document.createElement("button");
+      btn.className = "example-btn" + (ex.id === currentExampleId ? " active" : "");
+      btn.textContent = ex.id;
+      btn.onclick = () => {
+        currentExampleId = ex.id;
+        renderAll();
+      };
+      $exampleButtons.appendChild(btn);
+    });
+  }
+
+  function initPLYViewer(holderId, plySrc, loadingId) {
+    const $loading = document.getElementById(loadingId);
+    const holder = document.getElementById(holderId);
+
+    if (!holder) return;
+
+    holder.innerHTML = "";
+    if ($loading) {
+      $loading.classList.remove("hidden");
+      $loading.textContent = "Loading PLY: 0%";
+    }
+
+    // dispose old if supported
+    if (currentPLYViewer && typeof currentPLYViewer.dispose === "function") {
+      try { currentPLYViewer.dispose(); } catch(e) {}
+    }
+    currentPLYViewer = null;
+
+    try {
+      currentPLYViewer = new PLYViewer(holderId, {
+        backgroundColor: 0x000000,
+        pointSize: 0.03,
+        autoRotate: true
+      });
+    } catch (e) {
+      console.error("[PLY] failed to construct PLYViewer:", e);
+      if ($loading) $loading.textContent = "PLY init failed";
+      return;
+    }
+
+    currentPLYViewer.loadPLY(plySrc, (progress) => {
+      if (!$loading || !progress || !progress.total) return;
+      const pct = Math.round(progress.loaded / progress.total * 100);
+      $loading.textContent = `Loading PLY: ${pct}%`;
+    })
+    .then(() => {
+      if ($loading) $loading.classList.add("hidden");
+    })
+    .catch(err => {
+      console.error("[PLY] load failed:", plySrc, err);
+      if ($loading) $loading.textContent = `PLY Error`;
+    });
+  }
+
+  function keepAutoRotateAfterInteraction(mvId) {
+    const mv = document.getElementById(mvId);
+    if (!mv) return;
+
+    // 用户松手/结束交互后，过一会儿恢复自旋转
+    const resume = () => {
+      mv.autoRotateDelay = 0;   // 立即恢复（或你想延迟就设 1000/2000 ms）
+      mv.autoRotate = true;
+    };
+
+    mv.addEventListener("pointerup", () => setTimeout(resume, 200), { passive: true });
+    mv.addEventListener("touchend",  () => setTimeout(resume, 200), { passive: true });
+    mv.addEventListener("mouseup",   () => setTimeout(resume, 200), { passive: true });
+    mv.addEventListener("wheel",     () => setTimeout(resume, 500), { passive: true }); // 缩放后也恢复
+  }
+
+  function initGLBProgress(mvId, loadingId) {
+    const mv = document.getElementById(mvId);
+    const $loading = document.getElementById(loadingId);
+
+    if (!mv || !$loading) return;
+
+    $loading.classList.remove("hidden");
+    $loading.textContent = "Loading GLB: 0%";
+
+    // progress 事件：e.detail.totalProgress (0..1)
+    const onProgress = (e) => {
+      const p = e.detail?.totalProgress;
+      if (typeof p === "number") {
+        $loading.textContent = `Loading GLB: ${Math.round(p * 100)}%`;
+        if (p >= 1) $loading.classList.add("hidden");
+      }
+    };
+
+    const onError = () => {
+      $loading.classList.remove("hidden");
+      $loading.textContent = "GLB Error (check Console/Network)";
+    };
+
+    mv.addEventListener("progress", onProgress, { passive: true });
+    mv.addEventListener("error", onError, { passive: true });
+  }
+
+  function renderExampleContent() {
+    const examples = DATA[currentDataset] || [];
+    const ex = examples.find(x => x.id === currentExampleId);
+
+    if (!ex) {
+      $exampleContent.innerHTML = `<div style="text-align:center;color:#666;">No content.</div>`;
+      return;
+    }
+
+    // ids
+    const plySrc = ex.models?.[0];
+    const glbSrc = ex.models?.[1];
+
+    const plyHolderId  = `ply-${currentDataset}-${ex.id}`;
+    const plyLoadingId = `ply-loading-${currentDataset}-${ex.id}`;
+
+    const mvId         = `mv-${currentDataset}-${ex.id}`;
+    const glbLoadingId = `glb-loading-${currentDataset}-${ex.id}`;
+
+    // build HTML (two viewers)
+    const model1Html = plySrc ? `
+      <div class="glb-item">
+        <div class="glb-viewer">
+          <div class="viewer-wrap">
+            <div id="${plyLoadingId}" class="viewer-loading">Loading PLY: 0%</div>
+            <div id="${plyHolderId}" style="width:100%;height:100%;"></div>
+          </div>
+        </div>
+        <div class="glb-download"><a href="${plySrc}" download>Download PLY</a></div>
+      </div>
+    ` : `<div style="color:#666;">No PLY.</div>`;
+
+    const model2Html = glbSrc ? `
+      <div class="glb-item">
+        <div class="glb-viewer">
+          <div class="viewer-wrap">
+            <div id="${glbLoadingId}" class="viewer-loading">Loading GLB: 0%</div>
+            <model-viewer
+              id="${mvId}"
+              src="${glbSrc}"
+              camera-controls
+              auto-rotate
+              auto-rotate-mode="turntable"
+              auto-rotate-delay="0"
+              rotation-per-second="20deg"
+              interaction-prompt="none"
+              environment-image="neutral"
+              style="width:100%;height:100%;">
+            </model-viewer>
+          </div>
+        </div>
+        <div class="glb-download"><a href="${glbSrc}" download>Download GLB</a></div>
+      </div>
+    ` : `<div style="color:#666;">No GLB.</div>`;
+
+    $exampleContent.innerHTML = `
+      <div class="glb-container">
+        ${model1Html}
+        ${model2Html}
+      </div>
+    `;
+
+    // init independently (no waiting)
+    if (plySrc) initPLYViewer(plyHolderId, plySrc, plyLoadingId);
+    if (glbSrc) initGLBProgress(mvId, glbLoadingId);
+    keepAutoRotateAfterInteraction(mvId);
+  }
+
+  function renderAll() {
+    renderDatasetButtons();
+    renderExampleButtons();
+    renderExampleContent();
+  }
+
+  renderAll();
+</script>
+
+<!-- BibTex -->
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+      @article{lipmap2026,
+        author    = {Zeran Ke, Bin Tan, Gui-Song Xia, Yujun Shen, and Nan Xue},
+        title     = {Tianfu Wu },
+        journal   = {TPAMI},
+        year      = {2026},
+      }
+    </code></pre>
+  </div>
+</section> -->
+
+
+<!-- Ack -->
+ <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column">
+        <h2 class="title is-3">Acknowledgements</h2>
+        <p>This work was supported by Ant Group Research Intern Program and Ant Group Postdoctoral Program.</p>
+      </div>
+    </div>
+  </div>
+ </section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
