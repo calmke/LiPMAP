@@ -1,8 +1,8 @@
 # LiP-Map: Interacted Planes Reveal 3D Line Mapping
-
-<a href="https://arxiv.org/abs/2602.01296"><img src="https://img.shields.io/badge/ArXiv-2602.01296-brightgreen"></a>
-
 <div align="center">
+
+<a href="https://arxiv.org/abs/2602.01296"><img src="https://img.shields.io/badge/ArXiv-2602.01296-brightgreen"></a>&ensp;<a href="https://calmke.github.io/LiPMAP/"><img src="https://img.shields.io/static/v1?label=Project%20Page&message=Github&color=blue&logo=github-pages"></a>
+
 
 [Zeran Ke](https://calmke.github.io/)<sup>1,2</sup>, [Bin Tan](https://icetttb.github.io/)<sup>2</sup>, [Gui-Song Xia](http://www.captain-whu.com/zh/person/xiaguisong.html)<sup>1</sup>,  [Yujun Shen](https://shenyujun.github.io/)<sup>2</sup>, [Nan Xue](https://xuenan.net/)<sup>2†</sup>
 
