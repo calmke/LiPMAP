@@ -535,16 +535,16 @@
     const mv = document.getElementById(mvId);
     if (!mv) return;
 
-    // 用户松手/结束交互后，过一会儿恢复自旋转
+    // auto-rotation resumes after a short delay while interacting
     const resume = () => {
-      mv.autoRotateDelay = 0;   // 立即恢复（或你想延迟就设 1000/2000 ms）
+      mv.autoRotateDelay = 0;   // resume immediately（or set to 1000/2000 ms）
       mv.autoRotate = true;
     };
 
     mv.addEventListener("pointerup", () => setTimeout(resume, 200), { passive: true });
     mv.addEventListener("touchend",  () => setTimeout(resume, 200), { passive: true });
     mv.addEventListener("mouseup",   () => setTimeout(resume, 200), { passive: true });
-    mv.addEventListener("wheel",     () => setTimeout(resume, 500), { passive: true }); // 缩放后也恢复
+    mv.addEventListener("wheel",     () => setTimeout(resume, 500), { passive: true }); 
   }
 
   function initGLBProgress(mvId, loadingId) {
@@ -556,7 +556,7 @@
     $loading.classList.remove("hidden");
     $loading.textContent = "Loading GLB: 0%";
 
-    // progress 事件：e.detail.totalProgress (0..1)
+    // progress event：e.detail.totalProgress (0..1)
     const onProgress = (e) => {
       const p = e.detail?.totalProgress;
       if (typeof p === "number") {
@@ -658,7 +658,7 @@
     <pre><code>
       @article{lipmap2026,
         author    = {Zeran Ke, Bin Tan, Gui-Song Xia, Yujun Shen, and Nan Xue},
-        title     = {Tianfu Wu },
+        title     = {Interacted Planes Reveal 3D Line Mapping},
         journal   = {TPAMI},
         year      = {2026},
       }
