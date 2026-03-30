@@ -242,6 +242,22 @@ Also, you can upload images and set optimization parameters for final 3D reconst
 Here, we take 49 images of the scene `scan16` from `DTU dataset` as an example.
 <img src="assets/figs/deeplsd-dtu-scan16.png" alt="Gradio Demo Interface" width="800">
 
+
+## 📝 Citation
+
+If you find our work useful in your research, please consider citing:
+
+```bash
+@article{lipmap,
+  title={Interacted Planes Reveal 3D Line Mapping}, 
+  author={Zeran Ke and Bin Tan and Gui-Song Xia and Yujun Shen and Xue Nan},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI)}, 
+  year={2026},
+  pages={1-17},
+  doi={10.1109/TPAMI.2026.3675287}
+}
+```
+
 ## 🙏 Acknowledgements
 LiPMAP is built on the top of several outstanding open-source projects. We are extremely grateful for the contributions of these projects and their communities, whose hard work has greatly propelled the development of the field and enabled our work to be realized.
 - [PlanarSplatting](https://github.com/ant-research/PlanarSplatting)
@@ -252,3 +268,5 @@ LiPMAP is built on the top of several outstanding open-source projects. We are e
 - [HAWP](https://github.com/cherubicXN/hawp)
 - [DeepLSD](https://github.com/cvg/DeepLSD)
 - [ScaleLSD](https://github.com/ant-research/scalelsd)
+
+
