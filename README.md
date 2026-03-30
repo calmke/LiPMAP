@@ -250,7 +250,7 @@ If you find our work useful in your research, please consider citing:
 ```bash
 @article{lipmap,
   title={Interacted Planes Reveal 3D Line Mapping}, 
-  author={Zeran Ke and Bin Tan and Gui-Song Xia and Yujun Shen and Xue Nan},
+  author={Zeran Ke and Bin Tan and Gui-Song Xia and Yujun Shen and Nan Xue},
   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence (PAMI)}, 
   year={2026},
   pages={1-17},
