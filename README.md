@@ -50,6 +50,36 @@ pip install "git+https://github.com/facebookresearch/vggt.git"
 * Download pretrained depth/normal models as described in [Omnidata](https://github.com/EPFL-VILAB/omnidata).
 * Makedir the derectory of `checkpoints`. Download the pretrined models of [HAWP](https://github.com/cherubicXN/hawp)、[DeepLSD](https://github.com/cvg/DeepLSD)、[ScaleLSD](https://github.com/ant-research/scalelsd)、[VGGT](https://github.com/facebookresearch/vggt) and [MoGe](https://github.com/microsoft/MoGe), and put these models in the derectory of `checkpoints`.
 
+<h3>
+  4. Acceleration<sup style="font-size:0.55em;">
+    <span style="
+      font-style: italic;
+      background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    ">
+      news
+    </span>
+  </sup>
+</h3>
+
+We have implemented line-plane assignment in `network.py` inside the `get_inter_points_lines_theta_dist` function using Python matrix operations. Recently, we updated the CUDA version of the `submodules/diff-assignment` library to accelerate this process. Tests show that it speeds up each scene by **~1 minute** on average. 
+
+First, compile it using the following command:
+
+```
+pip install submodules/diff-assignment --no-build-isolation
+```
+
+Then, you can switch between the Python and CUDA versions in *lines 10–13* of the `trainer.py` file:
+```
+# python version.
+# from .network import RecWrapper
+# CUDA-accelerated version of RecWrapper. See get_inter_points_lines_theta_dist for details.
+from .network_acc import AccRecWrapper as RecWrapper
+```
+
+We will continue to optimize the code in the future to further speed up the scene optimization process.
 
 
 ## 📊 Data Preparation
