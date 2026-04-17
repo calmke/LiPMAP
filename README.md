@@ -50,7 +50,7 @@ pip install "git+https://github.com/facebookresearch/vggt.git"
 * Download pretrained depth/normal models as described in [Omnidata](https://github.com/EPFL-VILAB/omnidata).
 * Makedir the derectory of `checkpoints`. Download the pretrined models of [HAWP](https://github.com/cherubicXN/hawp)、[DeepLSD](https://github.com/cvg/DeepLSD)、[ScaleLSD](https://github.com/ant-research/scalelsd)、[VGGT](https://github.com/facebookresearch/vggt) and [MoGe](https://github.com/microsoft/MoGe), and put these models in the derectory of `checkpoints`.
 
-<h3>
+<!-- <h3>
   4. Acceleration<sup style="font-size:0.55em;">
     <span style="
       font-style: italic;
@@ -61,7 +61,11 @@ pip install "git+https://github.com/facebookresearch/vggt.git"
       news
     </span>
   </sup>
+</h3> -->
+<h3>
+  4. Acceleration<sup style="font-size:0.55em; color:red; font-style:italic;">news</sup>
 </h3>
+
 
 We have implemented line-plane assignment in `network.py` inside the `get_inter_points_lines_theta_dist` function using Python matrix operations. Recently, we updated the CUDA version of the `submodules/diff-assignment` library to accelerate this process. Tests show that it speeds up each scene by **~1 minute** on average. 
 
