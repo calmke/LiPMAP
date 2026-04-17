@@ -62,10 +62,8 @@ pip install "git+https://github.com/facebookresearch/vggt.git"
     </span>
   </sup>
 </h3> -->
-<h3>
-  4. Acceleration<sup style="font-size:0.55em; color:red; font-style:italic;">news</sup>
-</h3>
 
+## 🎉Acceleration
 
 We have implemented line-plane assignment in `network.py` inside the `get_inter_points_lines_theta_dist` function using Python matrix operations. Recently, we updated the CUDA version of the `submodules/diff-assignment` library to accelerate this process. Tests show that it speeds up each scene by **~1 minute** on average. 
 
