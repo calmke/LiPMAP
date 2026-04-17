@@ -10,7 +10,7 @@ import glob
 from tqdm import tqdm
 import open3d as o3d
 
-def run_vggt(data_path, ckpt_path='checkpoints/model.pt', step=1, depth_conf_thresh=2.0):
+def run_vggt(data_path, ckpt_path='checkpoints/vggt-1B.pt', step=1, depth_conf_thresh=2.0):
     device = "cuda" if torch.cuda.is_available() else "cpu"
     # bfloat16 is supported on Ampere GPUs (Compute Capability 8.0+) 
     dtype = torch.bfloat16 if torch.cuda.get_device_capability()[0] >= 8 else torch.float16

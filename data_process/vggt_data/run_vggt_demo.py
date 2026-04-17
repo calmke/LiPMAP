@@ -6,9 +6,9 @@ sys.path.append('.')
 import argparse
 from pyhocon import ConfigFactory
 from pyhocon import ConfigTree
-from utils.run_metric3d import extract_mono_geo_demo
-from utils.run_vggt import run_vggt
 from utils.misc_util import save_video, is_video_file, save_frames_from_video
+from utils_gradio.run_metric3d import extract_mono_geo_demo
+from utils_gradio.run_vggt import run_vggt
 from utils_gradio.run_detector import run_line_detector
 
 import torch
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     parser.add_argument("-s", "--frame_step", type=int, default=10, help='sampling step of video frames')
     parser.add_argument("--depth_conf", type=float, default=2.0, help='depth confidence threshold of vggt')
     parser.add_argument("--conf_path", type=str, default='utils_demo/demo.conf', help='path of configure file')
-    parser.add_argument("--detector", type=str, default='deeplsd', help='line detector: lsd, scalelsd, hawpv3, deeplsd')
+    parser.add_argument("--detector", type=str, default='scalelsd', help='line detector: lsd, scalelsd, hawpv3, deeplsd')
     args = parser.parse_args()
 
     data_path = args.data_path

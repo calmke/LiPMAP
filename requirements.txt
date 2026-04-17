@@ -1,4 +1,4 @@
-numpy==1.26.1
+# numpy==1.26.1
 xformers==0.0.27
 Pillow
 huggingface_hub
@@ -23,5 +23,7 @@ tqdm
 pyrender
 yapf>=0.40.2
 h5py
+pytorch_lightning
+mmengine
 
 

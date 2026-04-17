@@ -14,7 +14,7 @@ except:
   from mmengine import Config, DictAction
 
 import sys
-sys.path.append('./third_party/Metric3D')
+sys.path.append('./submodules/Metric3D')
 from mono.model.monodepth_model import get_configured_monodepth_model
 metric3d_dir = os.path.dirname(__file__)
 

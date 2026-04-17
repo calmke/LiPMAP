@@ -23,6 +23,11 @@
 ```
 git clone https://github.com/ant-research/LiPMAP.git --recursive 
 ```
+or
+```
+git clone https://github.com/ant-research/LiPMAP.git
+git submodule update --init --recursive
+```
 
 ### 2.Create the enviroment
 ```

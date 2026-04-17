@@ -1,0 +1,8 @@
+ext.cpp
+quat.cu
+quat_convert.cu
+setup.py
+quaternion_utils.egg-info/PKG-INFO
+quaternion_utils.egg-info/SOURCES.txt
+quaternion_utils.egg-info/dependency_links.txt
+quaternion_utils.egg-info/top_level.txt

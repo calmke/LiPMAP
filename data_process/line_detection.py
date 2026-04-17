@@ -7,9 +7,9 @@ sys.path.append('.')
 import argparse
 from pyhocon import ConfigFactory
 from pyhocon import ConfigTree
-from utils.run_metric3d import extract_mono_geo_demo
-from utils.run_vggt import run_vggt
 from utils.misc_util import save_video, is_video_file, save_frames_from_video
+from utils_gradio.run_metric3d import extract_mono_geo_demo
+from utils_gradio.run_vggt import run_vggt
 from utils_gradio.run_detector import run_line_detector
 
 import torch

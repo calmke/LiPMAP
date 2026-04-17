@@ -1,5 +1,6 @@
 scan_ids=(
     "scene0084_00"
+    # "scene0100_00"
 )
 
 for scan_id in "${scan_ids[@]}"
@@ -8,7 +9,7 @@ do
 
     echo ">>> export normal from Omnidata"
     python data_process/export_omnidata_normal.py \
-        --images_root ./data/general_data/ScanNetPP/${scan_id}/images
+        --images_root ./data/general_data/ScanNetV2/${scan_id}/images
 
     echo ">>> export normal/depth maps from Metric3D"
     python data_process/export_metric3d_data.py \
