@@ -6,7 +6,12 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 import glob
-from .network import RecWrapper
+
+# python version.
+# from .network import RecWrapper
+# CUDA-accelerated version of RecWrapper. See get_inter_points_lines_theta_dist for details.
+from .network_acc import AccRecWrapper as RecWrapper
+
 from random import randint
 import math
 import shutil
@@ -206,8 +211,6 @@ class Trainer():
             if iter > 0 and iter % self.save_ckpt_freq_ite == 0 or iter == self.max_total_iters:
                 self.save_checkpoints(iter=self.iter_step, only_latest=False)
 
-            torch.cuda.empty_cache()
-        
 
     def check_plane_visibility_cuda(self, joint=False):   
         self.net.regularize_plane_shape(False)     

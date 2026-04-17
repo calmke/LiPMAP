@@ -462,7 +462,7 @@ class RecWrapper(nn.Module):
         lines = mask_data['lines']
         pose = mask_data['pose'][None]
         intrinsics = mask_data['intrinsics'][None]
-        image = view_info.rgb.cpu().numpy()
+        # image = view_info.rgb.cpu().numpy()
 
         rays_d, rays_o = model_util.get_raydir_camloc(uv, pose, intrinsics)
         rays_d = rays_d.reshape(-1, 3)
@@ -593,7 +593,6 @@ class RecWrapper(nn.Module):
         loss_final_dict.update(loss_line_dict)
 
         loss_final_dict.update({'total_loss': loss_final.item()})
-        torch.cuda.empty_cache()
     
         return loss_final, loss_final_dict
 
