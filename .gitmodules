@@ -7,3 +7,6 @@
 [submodule "third_party/omnidata"]
 	path = third_party/omnidata
 	url = https://github.com/EPFL-VILAB/omnidata.git
+[submodule "third_party/hawp"]
+	path = third_party/hawp
+	url = https://github.com/cherubicXN/hawp.git

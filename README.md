@@ -33,13 +33,18 @@ pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https
 pip install -r requirements.txt 
 pip install submodules/diff-rect-rasterization
 pip install submodules/quaternion-utils
+pip install -e third_party/hawp
 
 pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
-pip install "git+https://github.com/cherubicXN/hawp.git"
 pip install "git+https://github.com/cherubicXN/easylsd.git"
 pip install "git+https://github.com/microsoft/MoGe.git"
 pip install "git+https://github.com/facebookresearch/vggt.git"
 ```
+
+### 3.Download pretrained models
+* Download pretrained depth/normal models as described in [Omnidata](https://github.com/EPFL-VILAB/omnidata).
+* Makedir the derectory of `checkpoints`. Download the pretrined models of [HAWP](https://github.com/cherubicXN/hawp)、[DeepLSD](https://github.com/cvg/DeepLSD)、[ScaleLSD](https://github.com/ant-research/scalelsd)、[VGGT](https://github.com/facebookresearch/vggt) and [MoGe](https://github.com/microsoft/MoGe), and put these models in the derectory of `checkpoints`.
+
 
 
 ## 📊 Data Preparation
